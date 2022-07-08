@@ -9,7 +9,9 @@ interface ISearch {
 
 const Search = (props: ISearch) => {
   return (
-    <input className='Search' type="text" placeholder={props.placeholder} value={props.value} />
+    <>
+      <input className='Search' type="text" placeholder={props.placeholder} value={props.value} />
+    </>
   );
 };
 
