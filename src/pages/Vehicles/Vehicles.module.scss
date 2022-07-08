@@ -10,8 +10,19 @@
     width: 100%;
   }
 
-  @include tablet {
+  .filter {
+    background-image: url('./../../assets/icon/filter.png');
+    background-repeat: no-repeat;
+    width: 75px;
+    height: 54px;
+    position: absolute;
+    top: 25px;
+    right: 100px;
+    cursor: pointer;
+  }
 
+  @include tablet {
+    
   }
 
   @include laptop {

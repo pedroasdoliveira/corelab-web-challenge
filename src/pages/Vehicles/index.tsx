@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getVehicles } from "../../lib/api";
 import { Button, Card, Search } from "../../components";
 import styles from "./Vehicles.module.scss";
 import { IVehicle } from "../../types/Vehicle";
+import { useNavigate } from "react-router-dom";
 
 const VehiclesPage = () => {
+  const navigate = useNavigate()
+
   const [vehicles, setVehicles] = useState<IVehicle[]>([]);
   const [search, setSearch] = useState<string>("");
 
@@ -17,14 +20,20 @@ const VehiclesPage = () => {
     fetchVehicles();
   }, []);
 
+  const handleChangeValue = () => {
+
+  }
+
   console.log({ vehicles });
 
   return (
     <div className={styles.Vehicles}>
       <main className={styles.main}>
-        <Search placeholder="Search" value={search} onChange={() => {}} />
+        <Search placeholder=" Buscar" value={search} 
+        onChange={handleChangeValue} />
+        <i className={styles.filter} onClick={() => navigate('/filter')} />
 
-        <Button text="Add new vehicle" onClick={() => {}} />
+        <Button text="Adicionar " onClick={() => navigate('/register')} />
 
         <Card title="Sandero Stepway">
           <p>Price: 22000</p>
