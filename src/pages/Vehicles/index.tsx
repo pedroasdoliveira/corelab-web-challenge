@@ -14,7 +14,8 @@ const VehiclesPage = () => {
   useEffect(() => {
     const fetchVehicles = async () => {
       const payload = await getVehicles();
-      setVehicles(payload);
+      console.log(payload);
+      setVehicles(payload.data);
     };
 
     fetchVehicles();
@@ -37,21 +38,17 @@ const VehiclesPage = () => {
         <Button text="Adicionar " onClick={() => navigate("/register")} />
 
         <div className={styles.containerCards}>
-
-          <Card title="Sandero Stepway">
-            <p>Price: 22000</p>
-            <p>Description: Carro usado por 2 anos...</p>
-            <p>Year: 2018</p>
-          </Card>
-
-          <Card title="Sandero Stepway">
-            <p>Price: 22000</p>
-            <p>Description: Carro usado por 2 anos...</p>
-            <p>Year: 2018</p>
-          </Card>
-          
+          {vehicles.map((vehicle) => (
+            <Card title={vehicle.name} key={vehicle.id}>
+              <i />
+              <p>Preço: {vehicle.price}</p>
+              <p>Descrição: {vehicle.description}</p>
+              <p>Placa: {vehicle.plate}</p>
+              <p>Ano: {vehicle.year}</p>
+              <p>Cor: {vehicle.color}</p>
+            </Card>
+          ))}
         </div>
-
       </main>
     </div>
   );

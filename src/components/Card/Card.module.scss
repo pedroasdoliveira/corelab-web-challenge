@@ -1,4 +1,7 @@
 .Card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   padding: 1.5rem;
   text-align: left;
   background-color: #F04F4F;
@@ -19,11 +22,25 @@
   h2 {
     margin: 0 0 1rem 0;
     font-size: 1.5rem;
+    color: #fff;
   }
 
   p {
     margin: 0;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.5rem;
+    color: #fff;
+  }
+
+  i {
+    background-image: url('../../assets/icon/favorite.png');
+    background-repeat: no-repeat;
+    width: 56px;
+    height: 50px;
+  }
+
+  .content {
+    color: #fff;
+    line-height: 1.5rem;
   }
 }
