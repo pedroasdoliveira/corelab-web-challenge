@@ -1,0 +1,15 @@
+.Page {
+    display: grid;
+    min-width: 100vw;
+    min-height: 100vh;
+
+    .FormContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem auto;
+        width: 660px;
+        height: auto;
+        background-color: #ECECEC;
+    }
+}
