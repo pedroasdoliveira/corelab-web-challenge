@@ -1,12 +1,12 @@
 export interface IVehicle {
-  id: number;
+  id?: number;
   name: string;
   brand: string;
   description: string;
   plate: string;
-  isFavorite: boolean;
+  is_favorite: boolean;
   year: number;
   color: string;
   price: number;
-  createdAt: Date;
+  createdAt?: Date;
 }
