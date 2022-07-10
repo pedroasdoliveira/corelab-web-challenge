@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackIcon from "../../assets/icon/arrow_back.png";
 import "./style.scss";
+import { API } from '../../lib/api'
 
 interface RegisterVehicleObj {
   name: string;
@@ -36,8 +37,22 @@ const RegisterVehicles = () => {
   const registerVehicle = async (e: React.SyntheticEvent) => {
     e.preventDefault()
 
+    await fetch(`${API}/vehicles`, {
+      method: 'POST',
+      body: JSON.stringify({
+        ...values,
+        is_favorite: false,
+      }),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8'
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
     
-  }
+
+    navigate('/')
+  } 
 
   return (
     <div className="Page">
@@ -112,14 +127,15 @@ const RegisterVehicles = () => {
           />
 
           <label htmlFor="description">Descrição:</label>
-          <textarea
+          <input
+            type='text'
             name="description"
             id="description"
             placeholder="  Algum comentario..."
             required
-          ></textarea>
+          />
 
-          <button type="submit" onClick={() => navigate("/")}>
+          <button type="submit">
             Salvar
           </button>
 
