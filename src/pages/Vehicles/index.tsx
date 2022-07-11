@@ -44,7 +44,11 @@ const VehiclesPage = () => {
           {search !== ""
             ? vehicles
                 .filter((e: IVehicle) =>
-                  e.name.toLowerCase().includes(search.toLowerCase())
+                  e.name.toLowerCase().includes(search.toLowerCase()) ||
+                  e.color.toLowerCase().includes(search.toLowerCase()) ||
+                  e.plate.toLowerCase().includes(search.toLowerCase()) ||
+                  e.year.toFixed().includes(search.toLowerCase()) ||
+                  e.price.toFixed().includes(search.toLowerCase())
                 )
                 .map((vehicle) => (
                   <Card title={vehicle.name} key={vehicle.id}>
