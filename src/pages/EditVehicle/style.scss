@@ -1,0 +1,60 @@
+.Page {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+
+  .BackIcon {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    left: 35px;
+    top: 20px;
+    cursor: pointer;
+  }
+
+  .Container {
+    padding: 1.25rem;
+    width: 50%;
+    height: auto;
+    border-radius: 15px;
+    margin: 2rem auto;
+    background-color: #ececec;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0.6rem auto;
+
+      label {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 0.6rem;
+        margin-right: 70%;
+      }
+
+      input {
+        width: 85%;
+        height: 30px;
+        border-radius: 15px;
+        border-color: transparent;
+        outline: none;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+
+      button {
+        width: 160px;
+        height: 45px;
+        font-size: 1.2rem;
+        border-radius: 15px;
+        border-color: transparent;
+        background-color: #65dcc7;
+        cursor: pointer;
+      }
+    }
+  }
+}
