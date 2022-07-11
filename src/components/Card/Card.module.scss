@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding: 1.5rem;
+  padding: 0.6rem 1rem;
   text-align: left;
-  background-color: #F04F4F;
+  background-color: #f04f4f;
   color: inherit;
   text-decoration: none;
   border: 1px solid #000;
   border-radius: 10px;
-  cursor: pointer;
   transition: color 0.15s ease, border-color 0.15s ease;
 
   &:hover,
@@ -24,6 +23,32 @@
     font-size: 1.5rem;
     text-align: center;
     color: #fff;
+  }
+
+  .IconsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.2rem;
+
+    .EditCard {
+      width: 45px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .DeleteCard {
+      width: 26px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .FavoriteIcon {
+      width: 30px;
+      height: auto;
+      cursor: pointer;
+    }
   }
 
   p {
