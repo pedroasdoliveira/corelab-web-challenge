@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { getVehicles } from "../../lib/api";
-import { Button, Card, Search } from "../../components";
-import styles from "./Vehicles.module.scss";
-import { IVehicle } from "../../types/Vehicle";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, Card, Search } from "../../components";
+import { getVehicles } from "../../lib/api";
+import { IVehicle } from "../../types/Vehicle";
+import styles from "./Vehicles.module.scss";
 
 const VehiclesPage = () => {
   const navigate = useNavigate();
@@ -21,7 +21,9 @@ const VehiclesPage = () => {
     fetchVehicles();
   }, []);
 
-  const handleChangeValue = () => {};
+  const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
 
   console.log({ vehicles });
 
@@ -31,23 +33,37 @@ const VehiclesPage = () => {
         <Search
           placeholder=" Buscar"
           value={search}
-          onChange={handleChangeValue}
+          handleChangeValue={handleChangeValue}
         />
+
         <i className={styles.filter} onClick={() => navigate("/filter")} />
 
         <Button text="Adicionar " onClick={() => navigate("/register")} />
 
         <div className={styles.containerCards}>
-          {vehicles.map((vehicle) => (
-            <Card title={vehicle.name} key={vehicle.id}>
-              <i />
-              <p>Preço: {vehicle.price}</p>
-              <p>Descrição: {vehicle.description}</p>
-              <p>Placa: {vehicle.plate}</p>
-              <p>Ano: {vehicle.year}</p>
-              <p>Cor: {vehicle.color}</p>
-            </Card>
-          ))}
+          {search !== ""
+            ? vehicles
+                .filter((e: IVehicle) =>
+                  e.name.toLowerCase().includes(search.toLowerCase())
+                )
+                .map((vehicle) => (
+                  <Card title={vehicle.name} key={vehicle.id}>
+                    <p>Preço: {vehicle.price}.</p>
+                    <p>Descrição: {vehicle.description}.</p>
+                    <p>Placa: {vehicle.plate}.</p>
+                    <p>Ano: {vehicle.year}.</p>
+                    <p>Cor: {vehicle.color}.</p>
+                  </Card>
+                ))
+            : vehicles.map((vehicle) => (
+                <Card title={vehicle.name} key={vehicle.id}>
+                  <p>Preço: {vehicle.price}.</p>
+                  <p>Descrição: {vehicle.description}.</p>
+                  <p>Placa: {vehicle.plate}.</p>
+                  <p>Ano: {vehicle.year}.</p>
+                  <p>Cor: {vehicle.color}.</p>
+                </Card>
+              ))}
         </div>
       </main>
     </div>

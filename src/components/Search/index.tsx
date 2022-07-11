@@ -4,13 +4,18 @@ import './style.scss'
 interface ISearch {
   placeholder: string;
   value: string;
-  onChange: () => void;
+  handleChangeValue: (e: any) => void;
 }
 
 const Search = (props: ISearch) => {
   return (
     <>
-      <input className='Search' type="text" placeholder={props.placeholder} value={props.value} />
+      <input 
+        className='Search' 
+        type="text" 
+        placeholder={props.placeholder}
+        onChange={props.handleChangeValue} 
+      />
     </>
   );
 };
