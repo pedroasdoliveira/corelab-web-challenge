@@ -13,32 +13,69 @@
   .filter {
     background-image: url("./../../assets/icon/filter.png");
     background-repeat: no-repeat;
-    width: 75px;
-    height: 54px;
+    background-size: cover;
+    width: 50px;
+    height: 40px;
     position: absolute;
-    top: 25px;
-    right: 100px;
+    top: 35px;
+    right: 0;
     cursor: pointer;
   }
 
   .containerCards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
-    margin: 1rem 3rem;
+    margin: 1rem 1rem;
   }
 
   @include tablet {
+    .filter {
+      right: 25px;
+    }
+
+    .containerCards {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      margin: 1rem 2rem;
+    }
   }
 
   @include laptop {
+    .filter {
+      right: 60px;
+    }
+
+    .containerCards {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: .6rem;
+      grid-row-gap: .6rem;
+      margin: 1rem 1rem;
+    }
   }
 
   @include desktop {
+    .filter {
+      right: 75px;
+    }
+
+    .containerCards {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
   }
 
   @include desktop-large {
+    .filter {
+      right: 85px;
+    }
+
+    .containerCards {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+    }
   }
 }
