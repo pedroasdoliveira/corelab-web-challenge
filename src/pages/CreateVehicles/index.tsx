@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackIcon from "../../assets/icon/arrow_back.png";
 import "./style.scss";
-import { API } from '../../lib/api'
+import { API } from "../../lib/api";
 
 interface RegisterVehicleObj {
   name: string;
@@ -18,41 +18,40 @@ const RegisterVehicles = () => {
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
-    name: '',
-    brand: '',
-    description: '',
-    plate: '',
+    name: "",
+    brand: "",
+    description: "",
+    plate: "",
     year: 0,
-    color: '',
+    color: "",
     price: 0,
   });
 
   const handleChangeValues = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues((values: RegisterVehicleObj) => ({
       ...values,
-      [e.target.name]: e.target.value
-    }))
-  }
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const registerVehicle = async (e: React.SyntheticEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     await fetch(`${API}/vehicles`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
         ...values,
         is_favorite: false,
       }),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8'
-      }
+        "Content-Type": "application/json; charset=UTF-8",
+      },
     })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    
+      .then((res) => res.json())
+      .then((data) => console.log(data));
 
-    navigate('/')
-  } 
+    navigate("/");
+  };
 
   return (
     <div className="Page">
@@ -65,7 +64,6 @@ const RegisterVehicles = () => {
 
       <main className="Container">
         <form onSubmit={registerVehicle}>
-
           <label htmlFor="name">Nome:</label>
           <input
             type="text"
@@ -128,17 +126,15 @@ const RegisterVehicles = () => {
 
           <label htmlFor="description">Descrição:</label>
           <input
-            type='text'
+            type="text"
             name="description"
             id="description"
             placeholder="  Algum comentario..."
             required
+            onChange={handleChangeValues}
           />
 
-          <button type="submit">
-            Salvar
-          </button>
-
+          <button type="submit">Salvar</button>
         </form>
       </main>
     </div>
