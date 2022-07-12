@@ -14,7 +14,6 @@ const VehiclesPage = () => {
   useEffect(() => {
     const fetchVehicles = async () => {
       const payload = await getVehicles();
-      console.log(payload);
       setVehicles(payload.data);
     };
 
@@ -24,8 +23,6 @@ const VehiclesPage = () => {
   const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
-
-  console.log({ vehicles });
 
   return (
     <div className={styles.Vehicles}>
@@ -52,7 +49,18 @@ const VehiclesPage = () => {
                     e.price.toFixed().includes(search.toLowerCase())
                 )
                 .map((vehicle) => (
-                  <Card title={vehicle.name} id={vehicle.id} key={vehicle.id}>
+                  <Card
+                    title={vehicle.name}
+                    key={vehicle.id}
+                    id={vehicle.id}
+                    name={vehicle.name}
+                    description={vehicle.description}
+                    brand={vehicle.brand}
+                    plate={vehicle.plate}
+                    year={vehicle.year}
+                    color={vehicle.color}
+                    price={vehicle.price}
+                  >
                     <p>Preço: {vehicle.price}.</p>
                     <p>Descrição: {vehicle.description}.</p>
                     <p>Placa: {vehicle.plate}.</p>
@@ -61,7 +69,18 @@ const VehiclesPage = () => {
                   </Card>
                 ))
             : vehicles.map((vehicle) => (
-                <Card title={vehicle.name} id={vehicle.id} key={vehicle.id}>
+                <Card
+                  title={vehicle.name}
+                  key={vehicle.id}
+                  id={vehicle.id}
+                  name={vehicle.name}
+                  description={vehicle.description}
+                  brand={vehicle.brand}
+                  plate={vehicle.plate}
+                  year={vehicle.year}
+                  color={vehicle.color}
+                  price={vehicle.price}
+                >
                   <p>Preço: {vehicle.price}.</p>
                   <p>Descrição: {vehicle.description}.</p>
                   <p>Placa: {vehicle.plate}.</p>

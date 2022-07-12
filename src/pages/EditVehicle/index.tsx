@@ -1,6 +1,8 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BackIcon from "../../assets/icon/arrow_back.png";
 import "./style.scss";
+import { API } from '../../lib/api'
 
 interface EditVehicleObj {
   name: string;

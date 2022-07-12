@@ -7,8 +7,15 @@ import styles from "./Card.module.scss";
 
 interface ICard {
   title: string;
-  id: number | undefined;
   children: ReactNode;
+  id: number | undefined;
+  name: string;
+  description: string;
+  brand: string;
+  plate: string;
+  year: number;
+  color: string;
+  price: number;
 }
 
 const Card = (props: ICard) => {
